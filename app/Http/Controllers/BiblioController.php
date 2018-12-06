@@ -29,17 +29,16 @@ class BiblioController extends Controller
         return  response()->json(['Biblios'=> $jsonArray], 200); 
     }
 
-    
+    //$cfg['ExecTimeLimit'] = 300;
     public function search($namebook)
     {
         
         $book = Biblio::with('metadatas:biblionumber,id,metadata')->where('title','like', '%' . $namebook . '%')->get();
        // return  response()->json(['Biblios'=> $book->load(['metadatas','itemsbiblioteca'])], 200); 
         return  response()->json(['Biblios'=> $book->load(['itemsbiblioteca:biblionumber,biblioitemnumber,isbn,publishercode,illus,pages,place'])], 200); 
-
     }
-
     
-
    
 }
+
+    
