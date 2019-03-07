@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('v01/biblios', 'BiblioController');
+Route::apiResource('/document/8094940/authors', 'BiblioController@mostrar');
 Route::get('v01/biblios/search/{namebook}', 'BiblioController@search');
